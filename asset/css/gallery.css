@@ -1,9 +1,13 @@
 
-
+@media  screen and (max-width:768px) {
+  .results{
+    width:calc(100% - 2rem);
+  }
+}
 
 .results {
   display: flex;
-  width: calc(80% - 2rem);
+  width: calc(100% - 2rem);
   padding: 0;
   margin: 0 auto;
   align-items: center;

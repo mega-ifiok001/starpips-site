@@ -63,7 +63,7 @@
 
     <!-- back to top start -->
     <div class="back-to-top-wrapper">
-        <button id="back_to_top" type="button" class="back-to-top-btn">
+        <button id="back_to_top" type="button" class="back-to-top-btn text-white">
             <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 6L6 1L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                     stroke-linejoin="round" />
@@ -355,23 +355,11 @@ support@starpipsforex.com</a>
                                     </div>
                                 </div>
                             </div>
-                            <form id="contact-form" action="" method="POST" class="box">
+                            <form id="contact-form" action=" http://localhost:3000/contact" method="POST" class="box">
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="contact-inner__category mb-85">
-                                            <!-- <h4 class="contact-inner__category-title">I'm interested in...</h4> -->
-                                            <div class="contact-inner__category-wrapper">
-                                                <!-- <label for="web_design" class="contact-category-btn">Web Design</label> -->
-                                                <!-- <label for="app_design" class="contact-category-btn active">App -->
-                                                    <!-- Design</label> -->
-                                                <!-- <label for="android_development"
-                                                    class="contact-category-btn active">Frontend
-                                                    Development</label> -->
-
-                                                <!-- <input type="checkbox" id="web_design">
-                                                <input type="checkbox" id="app_design">
-                                                <input type="checkbox" id="frontend_development"> -->
-                                            </div>
+                                        
                                         </div>
                                     </div>
                                 </div>
@@ -383,11 +371,12 @@ support@starpipsforex.com</a>
                                                 <div class="postbox__comment-input mb-35">
                                                     <input name="name" type="text" class="inputText" required>
                                                     <span class="floating-label">First Name</span>
+                                                    <div class="fist-name-error-text"></div>
                                                 </div>
                                             </div>
                                             <div class="col-xxl-6 col-xl-6 col-lg-6">
                                                 <div class="postbox__comment-input mb-35">
-                                                    <input name="email" type="email" class="inputText" required>
+                                                    <input name="email" type="text" class="inputText" required>
                                                     <span class="floating-label">Last Name</span>
                                                 </div>
                                             </div>
@@ -399,7 +388,7 @@ support@starpipsforex.com</a>
                                             </div>
                                             <div class="col-xxl-6 col-xl-6 col-lg-6">
                                                 <div class="postbox__comment-input mb-35">
-                                                    <input name="email" type="email" class="inputText" required>
+                                                    <input name="email" type="number" class="inputText" required>
                                                     <span class="floating-label">Phone Number (Whatsapp/Telegram) <span class="text-danger">*</span></span>
                                                 </div>
                                             </div>
@@ -411,6 +400,8 @@ support@starpipsforex.com</a>
                                             </div>
                                         </div>
                                     </div>
+                                <p class="ajax-response"></p>
+
 
                                     <div class="row">
                                         <div class="col-xxl-12">
@@ -424,7 +415,6 @@ support@starpipsforex.com</a>
                                         </div>
                                     </div>
                                 </div>
-                                <p class="ajax-response"></p>
                             </form>
                         </div>
                     </div>
@@ -603,7 +593,8 @@ support@starpipsforex.com</a>
     </div>
 
     <!-- JS here -->
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
+    <script src="asset/js/contact.js"></script>
     <script src="asset/js/vendor/jquery.js"></script>
     <script src="asset/js/bootstrap-bundle.js"></script>
     <script src="asset/js/three.js"></script>
@@ -627,7 +618,7 @@ support@starpipsforex.com</a>
     <script src="asset/js/throwable.js"></script>
     <script src="asset/js/isotope-pkgd.js"></script>
     <script src="asset/js/imagesloaded-pkgd.js"></script>
-    <script src="asset/js/ajax-form.js"></script>
+    <!-- <script src="asset/js/ajax-form.js"></script> -->
 
     <script src="asset/js/theme-settings.js"></script>
     <script src="asset/js/animated-headline.js"></script>

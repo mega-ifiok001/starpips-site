@@ -13970,6 +13970,9 @@ html[tp-theme=tp-theme-light] .cursor-white #ball {
 .tp-hero-3__shape-2 img {
  
 }
+
+
+
 .tp-hero-3__title {
   font-family: var(--tp-ff-didoneright);
   font-style: normal;
@@ -23259,6 +23262,30 @@ width:80%;
 margin: 6rem auto;
 border-radius: 1rem;
 }
+
+.big-name_1{
+  display:flex;
+  display:none;
+  align-items:center;
+width:100%;
+margin: 6rem auto;
+padding:3rem 1rem ;
+}
+
+@media screen and (max-width:768px){
+  .big-name{
+    display:none;
+  }
+
+  .big-name_1{
+    display:block;
+  }
+
+  .results{
+    width:100% ;
+  }
+}
+
 
 .mover{
   box-shadow:  0 5px 20px;
