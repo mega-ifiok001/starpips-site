@@ -6,9 +6,9 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     const fname = form.querySelector('input[name="name"]').value.trim();
     const email = form.querySelector('input[name="email"]').value.trim();
     const message = form.querySelector('textarea[name="message"]').value.trim();
-    const phneNumber = form.querySelector('input[name="number"]').value.trim();
+    const phoneNumber = form.querySelector('input[name="number"]').value.trim();
 
-    if (!fname || !email || !message) {
+    if (!fname || !email || !message || !phoneNumber) {
         document.querySelector('.ajax-response').innerText = 'Please fill out all required fields.';
         return;
     }
@@ -17,7 +17,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     const formData = {
         fname: fname,
         email: email,
-        phneNumber: phneNumber,
+        phoneNumber: phoneNumber,
         message: message
     };
 
@@ -26,15 +26,19 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
         console.log(xhr.responseText);
-        if (xhr.status === 200 && xhr.responseText === 'Form received and email sent') {
-            alert('Email sent successfully!');
-            
-            // Clear form fields
-            form.querySelector('input[name="name"]').value = '';
-            form.querySelector('input[name="email"]').value = '';
-            form.querySelector('input[name="number"]').value = '';
-            form.querySelector('textarea[name="message"]').value = '';
-            
+        if (xhr.status === 200) {
+            const response = xhr.responseText.trim();
+            if (response === 'Email sent successfully') {
+                alert('Email sent successfully!');
+                
+                // Clear form fields
+                form.querySelector('input[name="name"]').value = '';
+                form.querySelector('input[name="email"]').value = '';
+                form.querySelector('input[name="number"]').value = '';
+                form.querySelector('textarea[name="message"]').value = '';
+            } else {
+                alert('Something went wrong. Please try again.');
+            }
         } else {
             alert('Something went wrong. Please try again.');
         }
