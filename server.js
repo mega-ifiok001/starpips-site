@@ -2,24 +2,24 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const nodemailer = require('nodemailer');
-require('dotenv').config(); // To load environment variables from .env file
+require('dotenv').config();
 
 const PORT = process.env.PORT || 5000;
 
-// Middleware
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
-// Route to serve contact form
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'contact.html'));
 });
 
-// Route to handle form submission
+
 app.post('/', (req, res) => {
   const { fname, email, message, phoneNumber } = req.body;
 
-  // Check if the necessary form fields are present
+  
   if (!fname || !email || !message || !phoneNumber) {
     return res.status(400).send('Missing required fields');
   }
@@ -27,15 +27,15 @@ app.post('/', (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'ifiokaniebiet044@gmail.com', // Use environment variables for sensitive info
-      pass: 'mpnw zoks egbn dmvz', // Replace this with an environment variable for security
+      user: 'ifiokaniebiet044@gmail.com', 
+      pass: 'mpnw zoks egbn dmvz',
     },
     tls: {
-      rejectUnauthorized: false       // Required for Gmail's secure connection
+      rejectUnauthorized: false       
     }
   });
 
-  // Create HTML content with the user's input
+  
   const htmlContent = `
     <html>
       <head>
@@ -87,10 +87,10 @@ app.post('/', (req, res) => {
   `;
 
   const mailOptions = {
-    from: email, // Sender's email address
-    to: 'ifiokaniebiet@gmail.com', // Recipient's email address
+    from: email, 
+    to: 'ifiokaniebiet@gmail.com',
     subject: `Message from ${fname}`,
-    html: htmlContent,  // Send HTML content
+    html: htmlContent,  
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
