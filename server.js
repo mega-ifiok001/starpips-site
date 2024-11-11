@@ -19,30 +19,37 @@ app.get('/', (req, res )=>{
     res.sendFile(path.join(__dirname, 'public',  'contact.html'))
 })
 
-
 app.post('/', (req, res)=>{
-    console.log(req.body );
-    res.send(('form received'))
-    
-})
+    console.log(req.body);
 
-const transporter = nodemailer.createTransport({
-    post:'smtp,123-reg.co.uk',
-    port:587,
-    services: 'gmail',
-    auth:{
-        user: 'ziksfilmz92@gmail.com',
-        pass:'Zikscreationz1992ziks'
+    const transporter = nodemailer.createTransport({
+        service:'gmail',
+        auth:{
+            user:'ifiokaniebiet044@gmail.com',
+            pass:'16062003Mega'
+        }
+    })
+
+    const mailOptions ={
+        from: req.body.email,
+        to: 'ifiokaniebiet044@gmail.com',
+        subject: `message from ${req.body.email} : ${req.body.message} : ${req.body.phneNumber}`,
+        text: req.body-message
     }
+
+    transporter.sendMail(mailOptions, (error, info)=>{
+        if(error){
+            console.log(error);
+            res.send('error');
+            
+        }else{
+            console.log('Email sent: ' + info.response);
+            res.send('success')
+            
+        }
+    })
 })
 
-
-const mailOptions = {
-    from:req.body.email,
-    to:'ziksfilmz92@gmail.com',
-    subject: `this Message is from ${fname}`,
-    text: `this person's name is ${fname} <br> user phone number is ${phneNumber} <br> the main message is ${req.body.message}`
-}
 app.listen(PORT, ()=>{
     console.log(`server is currently running on ${PORT}`);
     
