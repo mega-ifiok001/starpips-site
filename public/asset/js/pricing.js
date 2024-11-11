@@ -31,3 +31,5 @@ document.querySelectorAll('.pricing-card').forEach(card => {
       )`;
     });
   });
+
+
