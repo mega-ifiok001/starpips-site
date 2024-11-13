@@ -23664,3 +23664,7 @@ animation:mover 4s ease infinite
 		    transition: all 250ms ease-out 0s;
 		    width: 20px;
 		}
+
+    .tp-footer-4__widget ul li a:hover {
+    color:#fff;
+    }
