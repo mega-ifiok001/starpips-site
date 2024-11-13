@@ -637,10 +637,23 @@ Our vision at Starpips Forex Academy is to be a leading global institution in fo
         <p class="des how-de">Never Miss A Chance To Be Financially Free</p>
   
         <form action="">
-          <input type="email" maxlength="50" class="new-input" required placeholder="Enter your email address">
-          <button class=" btn-primary btn mt-3">Subscribe</button>
+          <input type="email" maxlength="50" class="new-input  newletter-input" required placeholder="Enter your email address">
+          <div class="news-error"></div>
+          <button class=" btn-primary btn mt-3 " onclick="newsLetter()">Subscribe</button>
   
         </form>
+
+        <script>
+   const newsInput = document.querySelector('.newletter-input');
+    function newsLetter(){
+        if(!newsInput.value){
+   const newMe =    document.querySelector('.news-error').innerHTML = 'Please kindly fill up the fields';
+   newMe.style.margin = '0 auto';
+   }else{
+    document.querySelector('.news-error').innerHTML = 'Your Subscription is successful ';
+   }
+    }
+        </script>
       </div>
     </div>
   
